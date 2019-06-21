@@ -25,6 +25,7 @@ namespace XamChat.ConsoleApp
             Console.WriteLine("You are connected...");
 
             await JoinRoom();
+            Console.WriteLine("Have a nice chat!");
 
             var keepGoing = true;
             do

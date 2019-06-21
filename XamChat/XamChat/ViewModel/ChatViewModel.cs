@@ -45,7 +45,7 @@ namespace XamChat.ViewModel
             ChatMessage = new ChatMessage();
             Messages = new ObservableCollection<ChatMessage>();
             Users = new ObservableCollection<User>();
-            SendMessageCommand = new Command(async () => await SendMessage());
+            SendMessageCommand = new Command(async (sender) => await SendMessage(sender));
             ConnectCommand = new Command(async () => await Connect());
             DisconnectCommand = new Command(async () => await Disconnect());
             random = new Random();
@@ -105,8 +105,10 @@ namespace XamChat.ViewModel
             SendLocalMessage("Disconnected...", Settings.UserName);
         }
 
-        async Task SendMessage()
+        async Task SendMessage(Object sender)
         {
+            ((Entry)sender).Focus();
+
             if(!IsConnected)
             {
                 await DialogService.DisplayAlert("Not connected", "Please connect to the server and try again.", "OK");
@@ -119,7 +121,7 @@ namespace XamChat.ViewModel
                     Settings.UserName,
                     ChatMessage.Message);
 
-                ChatMessage.Message = string.Empty;
+                ChatMessage.Message = String.Empty;
             }
             catch (Exception ex)
             {

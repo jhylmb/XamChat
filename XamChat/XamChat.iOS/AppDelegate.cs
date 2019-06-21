@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using KeyboardOverlap.Forms.Plugin.iOSUnified;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -29,10 +30,16 @@ namespace XamChat.iOS
            
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.Forms.FormsMaterial.Init();
+
+            Xamarin.IQKeyboardManager.SharedManager.Enable = true;
+            Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = false;
+
             LoadApplication(new App());
 
 
             UITabBar.Appearance.SelectedImageTintColor = ((Color)App.Current.Resources["SecondaryColor"]).ToUIColor();
+
+            //KeyboardOverlapRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

@@ -150,36 +150,54 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="60" />
                 </Grid.ColumnDefinitions>
                 <Entry
+                    x:Name="entry"
                     Grid.Column="0"
                     BackgroundColor="Transparent"
-                    Placeholder="Message"
                     ReturnCommand="{Binding SendMessageCommand}"
+                    ReturnCommandParameter="{x:Reference entry}"
                     ReturnType="Send"
-                    Text="{Binding ChatMessage.Message, Mode=TwoWay}"
-                    Visual="Material" />
+                    Text="{Binding ChatMessage.Message, Mode=TwoWay}"/>
                 <Frame
                     Grid.Column="1"
                     Padding="0"
                     BackgroundColor="Red"
                     CornerRadius="20"
                     HasShadow="True"
-                    HeightRequest="40"
+                    HeightRequest="50"
                     HorizontalOptions="End"
                     VerticalOptions="CenterAndExpand"
                     Visual="Material"
-                    WidthRequest="40">
-                    <ImageButton
+                    WidthRequest="60">
+                    <!--<ImageButton
+                        
                         BackgroundColor="Transparent"
                         Command="{Binding SendMessageCommand}"
+                        CommandParameter="{x:Reference entry}"
                         HorizontalOptions="Center"
                         IsEnabled="{Binding IsNotBusy}"
                         Source="{OnPlatform Android='ic_send.png',
                                             iOS='ic_send.png',
                                             UWP='Assets/ic_send.png'}"
-                        VerticalOptions="Center" />
+                        VerticalOptions="Center" >
+                        
+                        <ImageButton.GestureRecognizers>
+                            
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>-->
+                    
+                    <Label Text="↑"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           TextColor="White">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SendMessageCommand}"
+                                CommandParameter="{x:Reference entry}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </Frame>
             </Grid>
 

@@ -173,11 +173,17 @@
     <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>4.0.0.394984-pre10</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.KeyboardOverlap">
+      <Version>1.0.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.IQKeyboardManager">
+      <Version>1.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\XamChat\XamChat.csproj">
-      <Project>{BA4CE29D-937E-46A5-B08C-4A4F8BE47E84}</Project>
+      <Project>{BCE7965E-97F8-41CC-9A24-1C2F9BB3826E}</Project>
       <Name>XamChat</Name>
     </ProjectReference>
   </ItemGroup>
